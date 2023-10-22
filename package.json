@@ -1,0 +1,71 @@
+{
+  "name": "react-contact-form",
+  "version": "0.0.1",
+  "description": "A comprehensive contact UI library based on material-ui with the aim for different way of display and interaction with dates.",
+  "author": "Georgi Dimitrov <GreoN5, georgidimitrov9669@gmail.com>",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreoN5/react-contact-form.git"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build:rollup": "rollup -c",
+    "build:storybook": "storybook build",
+    "build-storybook": "storybook build"
+  },
+  "bugs": {
+    "url": "https://github.com/GreoN5/react-contact-form/issues"
+  },
+  "homepage": "https://github.com/GreoN5/react-contact-form",
+  "keywords": [
+    "react",
+    "typescript",
+    "javascript",
+    "contact",
+    "form",
+    "react-contact-form"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.0",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@storybook/addon-essentials": "^7.5.1",
+    "@storybook/addon-interactions": "^7.5.1",
+    "@storybook/addon-links": "^7.5.1",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.1",
+    "@storybook/react": "^7.5.1",
+    "@storybook/react-vite": "^7.5.1",
+    "@storybook/testing-library": "^0.2.2",
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "prettier": "^3.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.28.0",
+    "rollup-plugin-dts": "^6.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "storybook": "^7.5.1",
+    "styled-components": "^6.1.0",
+    "typescript": "^5.1.6"
+  },
+  "publishConfig": {
+    "name": "react-contact-form",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  }
+}
