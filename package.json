@@ -1,6 +1,6 @@
 {
   "name": "react-contact-form",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A comprehensive contact UI library based on material-ui with the aim for different way of display and interaction with dates.",
   "author": "Georgi Dimitrov <GreoN5, georgidimitrov9669@gmail.com>",
   "license": "MIT",
@@ -20,8 +20,7 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build:rollup": "rollup -c",
-    "build:storybook": "storybook build",
-    "build-storybook": "storybook build"
+    "build:storybook": "storybook build"
   },
   "bugs": {
     "url": "https://github.com/GreoN5/react-contact-form/issues"

@@ -1,0 +1,60 @@
+name: Publish to NPM
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.TOKEN_WORKFLOW }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Git configuration
+        run: |
+          git config --global user.name GreoN5
+          git config --global user.email georgidimitrov9669@gmail.com
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Determine version bump type from PR title
+        id: determine-bump
+        run: |
+          PR_TITLE="${{ github.event.head_commit.message }}"
+          if [[ $PR_TITLE == *"[minor]"* ]]; then
+            echo "::set-output name=bump::minor"
+          elif [[ $PR_TITLE == *"[major]"* ]]; then
+            echo "::set-output name=bump::major"
+          else
+            echo "::set-output name=bump::patch"
+          fi
+
+      - name: Bump package version and commit
+        run: |
+          BUMP_TYPE=$(echo ${{ steps.determine-bump.outputs.bump }})
+          npm version $BUMP_TYPE -m "Bump version to %s [skip ci]"
+
+      - name: Push changes to repository
+        run: git push --follow-tags
+
+      - name: Build
+        run: npm run build:rollup
+
+      - name: Publish to NPM
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          npm publish
+
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
