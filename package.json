@@ -1,6 +1,6 @@
 {
   "name": "react-contact-form",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A comprehensive contact UI library based on material-ui with the aim for different way of display and interaction with dates.",
   "author": "Georgi Dimitrov <GreoN5, georgidimitrov9669@gmail.com>",
   "license": "MIT",
