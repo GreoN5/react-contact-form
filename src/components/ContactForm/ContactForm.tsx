@@ -13,6 +13,7 @@ type Props = {
   labelClassName?: string;
   inputClassName?: string;
   textareaClassName?: string;
+  submitButtonClassName?: string;
 };
 
 const ContactForm: FC<Props> = ({
@@ -25,6 +26,7 @@ const ContactForm: FC<Props> = ({
   labelClassName,
   inputClassName,
   textareaClassName,
+  submitButtonClassName,
 }) => {
   const renderMainHeading = (): ReactNode => {
     let contactHeading: ReactNode = <H1>Contact us</H1>;
@@ -74,7 +76,9 @@ const ContactForm: FC<Props> = ({
           <MessageTextarea textareaClassName={textareaClassName} labelClassName={labelClassName} />
         </Row>
         {fields || null}
-        <Button type="submit">Send</Button>
+        <Button className={submitButtonClassName} type="submit">
+          Send
+        </Button>
       </Form>
     </FormWrapper>
   );
