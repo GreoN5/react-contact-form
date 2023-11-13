@@ -1,6 +1,6 @@
 {
   "name": "react-contact-form",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A comprehensive contact UI library based on styled-components with the aim for easier display and interaction with a contact form.",
   "author": "Georgi Dimitrov <GreoN5, georgidimitrov9669@gmail.com>",
   "license": "MIT",
