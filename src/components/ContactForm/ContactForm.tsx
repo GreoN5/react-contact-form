@@ -1,23 +1,31 @@
 import React, { FC, FormEvent, ReactNode } from 'react';
 import { H1, H3, HeadingBox } from '@/components/design-system/Heading';
-import {
-  Button,
-  Form,
-  FormWrapper,
-  Input,
-  InputWrapper,
-  Label,
-  Row,
-  Textarea,
-} from '@/components/design-system/Form';
+import { Button, Form, FormWrapper, Row } from '@/components/design-system/Form';
+import { EmailInput, MessageTextarea, NameInput, SubjectInput } from '@/components/Input';
 
 type Props = {
   onSubmitContact: (e?: FormEvent<HTMLFormElement>) => void | Promise<void>;
+  fields?: ReactNode;
   heading?: ReactNode | string;
   subHeading?: ReactNode | string;
+  headingClassName?: string;
+  formClassName?: string;
+  labelClassName?: string;
+  inputClassName?: string;
+  textareaClassName?: string;
 };
 
-const ContactForm: FC<Props> = ({ onSubmitContact, heading, subHeading }) => {
+const ContactForm: FC<Props> = ({
+  onSubmitContact,
+  fields,
+  heading,
+  subHeading,
+  headingClassName,
+  formClassName,
+  labelClassName,
+  inputClassName,
+  textareaClassName,
+}) => {
   const renderMainHeading = (): ReactNode => {
     let contactHeading: ReactNode = <H1>Contact us</H1>;
 
@@ -48,35 +56,24 @@ const ContactForm: FC<Props> = ({ onSubmitContact, heading, subHeading }) => {
 
   return (
     <FormWrapper>
-      <HeadingBox>
+      <HeadingBox className={headingClassName}>
         <div>{renderMainHeading()}</div>
         <div>{renderSubHeading()}</div>
       </HeadingBox>
-      <Form onSubmit={onSubmitContact}>
+      <Form className={formClassName} onSubmit={onSubmitContact}>
         <Row>
-          <InputWrapper>
-            <Label htmlFor="name">Name</Label>
-            <Input name="name" type="text" required />
-          </InputWrapper>
+          <NameInput inputClassName={inputClassName} labelClassName={labelClassName} />
         </Row>
         <Row>
-          <InputWrapper>
-            <Label htmlFor="email">Email</Label>
-            <Input name="email" type="email" required />
-          </InputWrapper>
+          <EmailInput inputClassName={inputClassName} labelClassName={labelClassName} />
         </Row>
         <Row>
-          <InputWrapper>
-            <Label htmlFor="subject">Subject</Label>
-            <Input name="subject" type="text" required />
-          </InputWrapper>
+          <SubjectInput inputClassName={inputClassName} labelClassName={labelClassName} />
         </Row>
         <Row>
-          <InputWrapper>
-            <Label htmlFor="message">Message</Label>
-            <Textarea name="message" />
-          </InputWrapper>
+          <MessageTextarea textareaClassName={textareaClassName} labelClassName={labelClassName} />
         </Row>
+        {fields || null}
         <Button type="submit">Send</Button>
       </Form>
     </FormWrapper>

@@ -14,7 +14,7 @@ export const Row = styled.div`
   width: 75%;
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `;
 
 export const InputWrapper = styled.div`
