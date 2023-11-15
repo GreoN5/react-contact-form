@@ -1,7 +1,7 @@
 # react-contact-form
 
-**react-contact-form** is a comprehensive calendar UI library with the aim for different way of display and interaction
-with dates
+**react-contact-form** is a comprehensive contact UI library based on styled-components 
+with the aim for easier display and interaction with a contact form.
 
 ## Installation
 
